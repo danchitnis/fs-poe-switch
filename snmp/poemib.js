@@ -13,11 +13,12 @@ const version = snmp.Version2c; // Adjust SNMP version if needed
 const session = snmp.createSession(targetIP, communityString, { version: version });
 
 // Base OID for the powerEtherTable
-const baseOid = "1.3.6.1.2.1.105.1.1";
+const baseOid = "1.3.6.1.4.1.52642.2.4.2";
 
 // Fetch the entire powerEtherTable
 session.table(baseOid, function (error, table) {
     console.log(table);
+
     console.log('-----------------------------');
     if (error) {
         console.error("Failed to fetch table:", error);
